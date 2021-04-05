@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:giphy_picker/src/widgets/giphy_search_view.dart';
+
 import 'giphy_context.dart';
 
 class GiphySearchPage extends StatelessWidget {
@@ -14,7 +15,14 @@ class GiphySearchPage extends StatelessWidget {
       return Theme(
         data: giphyDecorator.giphyTheme ?? Theme.of(context),
         child: Scaffold(
-          appBar: giphyDecorator.showAppBar ? AppBar(title: title) : null,
+          appBar: AppBar(
+            toolbarHeight: 50,
+            actions: <Widget>[
+              Container(
+                  padding: EdgeInsets.fromLTRB(10, 10, 15, 10),
+                  child: Image.asset('assets/giphy1.png', package: 'giphy_picker')),
+            ],
+          ),
           body: SafeArea(
             child: GiphySearchView(),
             bottom: false,
